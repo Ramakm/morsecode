@@ -1,0 +1,17 @@
+def morse(text):
+
+    encrypt = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
+         'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
+         'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
+         'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
+         'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
+         'Z': '--..', ' ': '.....'}
+    decrypt = {value:key for key, value in encrypt.items()}
+    # print(decrypt)
+    if '-' in text:
+        return ''.join(decrypt[i] for i in text.split())
+    return ' '.join(encrypt[i] for i in text.upper())
+print(morse(input("Enter a String:")))
+
+#The below line is just to reject morse function and give same string what you will enter in the console
+print(morse(morse(input("Enter a String:"))))
